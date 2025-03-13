@@ -1,0 +1,15 @@
+{
+  "name": "aiqia-cli",
+  "version": "1.0.1",
+  "description": "Create project structure for Aiqia",
+  "bin": {
+    "aiqia": "./index.js"
+  },
+  "author": "Aiqia",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "fs-extra": "^11.3.0",
+    "replace-in-file": "^8.3.0"
+  }
+}
