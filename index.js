@@ -28,7 +28,7 @@ async function projectCreate(projectName, port) {
     });
 
     await replaceInFile({
-      files: `${projectPath}/rsbuild.config.ts`,
+      files: `${projectPath}/**/*`,
       from: /PROJECT_PORT_NUMBER/g,
       to: port,
     });
