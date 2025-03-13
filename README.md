@@ -5,13 +5,13 @@
 Run this command to create the project folder.
 
 ```
-npx aiqia create <nome-projeto> -p <porta>
+npx @aiqiabr/aiqia-cli create <project-name> -p <port>
 ```
 
 then:
 
 ```
-cd <nome-project> && pnpm run dev
+cd <project-name> && pnpm run dev
 ```
 
 For more info see the README.md in the project.
