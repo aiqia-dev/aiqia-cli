@@ -5,7 +5,7 @@
 Run this command to create the project folder.
 
 ```
-npx @aiqiabr/create create <project-name> -p <port>
+npx @aiqiabr/cli create <project-name> -p <port>
 ```
 
 then:
