@@ -1,5 +1,5 @@
 {
-  "name": "@aiqiabr/aiqia-cli",
+  "name": "@aiqiabr/create",
   "version": "1.0.3",
   "description": "Create project structure for Aiqia",
   "bin": {
