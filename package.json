@@ -2,6 +2,7 @@
   "name": "@aiqiabr/cli",
   "version": "1.0.7",
   "description": "Create project structure for Aiqia",
+  "type": "module",
   "bin": {
     "aiqia": "./index.js"
   },

@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
-const { program } = require("commander");
-const fs = require("fs-extra");
-const path = require("path");
-const { replaceInFile } = require("replace-in-file");
+import { program } from "commander";
+import fs from "fs-extra";
+import path from "path";
+import { fileURLToPath } from "url";
+import { replaceInFile } from "replace-in-file";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 program
   .command("create <project-name>")
