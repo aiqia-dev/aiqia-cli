@@ -1,4 +1,4 @@
-# Aiqia BI
+# Aiqia PROJECT_NAME
 
 ## Setup
 
