@@ -1,6 +1,6 @@
 {
   "name": "@aiqiabr/cli",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Create project structure for Aiqia",
   "type": "module",
   "bin": {
