@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@aiqiabr/aiqia-ui": "^1.0.8",
+    "@aiqiabr/aiqia-ui": "^1.0.10",
     "@hookform/resolvers": "^3.10.0",
     "@module-federation/enhanced": "^0.8.9",
     "@rspack/core": "^1.2.2",
