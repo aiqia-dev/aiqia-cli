@@ -28,7 +28,7 @@ async function projectCreate(projectName, port) {
     await replaceInFile({
       files: [`${projectPath}/**/*`],
       from: /PROJECT_NAME/g,
-      to: projectName.replace("-", "_"),
+      to: projectName.replace(/-/g, "_"),
     });
 
     await replaceInFile({
