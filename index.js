@@ -32,6 +32,12 @@ async function projectCreate(projectName, port) {
     });
 
     await replaceInFile({
+      files: [`${projectPath}/**/*`],
+      from: /PROJECT_ROUTE/g,
+      to: projectName,
+    });
+
+    await replaceInFile({
       files: `${projectPath}/**/*`,
       from: /PROJECT_PORT_NUMBER/g,
       to: port,
