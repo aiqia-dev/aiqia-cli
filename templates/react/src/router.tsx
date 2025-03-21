@@ -12,7 +12,7 @@ export default function AppRouter() {
   return (
     <QueryClientProvider client={new QueryClient()}>
       <AppStateProvider>
-        <Router basename="/PROJECT_NAME">
+        <Router basename={process.env.NODE_ENV === 'production' ? "/PROJECT_NAME" : "/"}>
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<HomePage />} />
