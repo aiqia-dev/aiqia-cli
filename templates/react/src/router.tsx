@@ -5,7 +5,6 @@ import AppStateProvider from '@/contexts/AppStateContext';
 import { AppLayout } from '@/components';
 import { HomePage } from '@/pages/home';
 import { Toaster } from '@aiqiabr/aiqia-ui';
-import '@aiqiabr/aiqia-ui/styles.css';
 import './globals.css';
 
 export default function AppRouter() {
