@@ -1,3 +1,4 @@
-import { Sidebar } from './Sidebar';
+import { LeftNavigation } from './LeftNavigation/LeftNavigation';
+import { TopNavigation } from './TopNavigation/TopNavigation';
 
-export { Sidebar };
+export { LeftNavigation, TopNavigation };
