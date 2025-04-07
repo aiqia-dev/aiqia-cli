@@ -28,7 +28,7 @@ export function LeftDrawer({
       <div
         className={`
       flex flex-col h-full transition-all duration-300
-      relative p-1
+      relative p-1 z-10
       ${isExpanded ? 'w-64' : 'w-16'}
     `}
       >

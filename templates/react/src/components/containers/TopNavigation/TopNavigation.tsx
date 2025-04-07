@@ -7,28 +7,31 @@ import {
 } from '@aiqiabr/aiqia-ui';
 import { Link } from 'react-router-dom';
 
-export function TopNavigation() {
+export type Menu = {
+  label: string;
+  href: string;
+};
+
+type Props = {
+  menu?: Menu[];
+};
+
+export function TopNavigation({ menu }: Props) {
+  if (!menu) return null;
   return (
     <nav className="px-10 py-3 border-b h-[var(--top-navigation-heigth)]">
       <NavigationMenu>
         <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link to="/">Menu 1</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link to="/">Menu 2</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+          {menu.map((item, index) => (
+            <NavigationMenuItem key={index}>
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
+              >
+                <Link to={item.href}>{item.label}</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          ))}
         </NavigationMenuList>
       </NavigationMenu>
     </nav>
