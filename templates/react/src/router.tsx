@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { AppLayout } from '@/components';
+import { AppLayout } from '@/components/layouts';
 import { HomePage } from '@/pages/home';
 import { Toaster } from '@aiqiabr/aiqia-ui';
 import './globals.css';
