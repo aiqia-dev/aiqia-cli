@@ -1,5 +1,5 @@
-import { PageLayout } from '@/components/layouts';
-import { Heading } from '@/components/ui';
+import { PageLayout } from '@/shared/layouts';
+import { Heading } from '@/shared/ui';
 
 export const HomePage = () => {
   const submenus = [

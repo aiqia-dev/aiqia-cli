@@ -37,6 +37,7 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
 
+  /* Fix margin top whit root bar */
   --top-navigation-heigth: 3.8125rem;
   --margin-top-bars: calc(
     var(--top-navigation-heigth) + var(--top-bar-root-height, 0px)

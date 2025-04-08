@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import { Button } from '@aiqiabr/aiqia-ui';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
