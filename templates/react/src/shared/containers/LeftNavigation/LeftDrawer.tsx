@@ -22,7 +22,7 @@ export function LeftDrawer({
   }, []);
 
   return (
-    <aside className="border-r p-1 bg-background h-full">
+    <aside className="border-r p-1 bg-card h-full">
       <div
         className={`
       flex flex-col h-full transition-all duration-300
@@ -31,14 +31,14 @@ export function LeftDrawer({
     `}
       >
         <Button
-          variant="ghost"
-          size="icon"
-          className="m-2 backdrop-blur absolute right-[-32px] top-[-4px]"
+          variant="outline"
+          size="iconSm"
+          className="m-2 bg-card absolute right-[-27px] top-[-0px] rounded-full size-7 text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
           onClick={toggleMenu}
         >
           {isExpanded ? <ChevronLeft /> : <ChevronRight />}
         </Button>
-        <nav className="flex flex-col space-y-2">{children(isExpanded)}</nav>
+        <nav className="flex flex-col space-y-1">{children(isExpanded)}</nav>
       </div>
     </aside>
   );

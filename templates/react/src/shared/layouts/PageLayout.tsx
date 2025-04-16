@@ -11,7 +11,7 @@ export const PageLayout = ({ menu, children }: Props) => {
     <>
       <TopNavigation menu={menu} />
       <ScrollArea className="h-[calc(100svh-var(--margin-top-bars))]">
-        <div className="px-10 py-5 h-[2000px]">{children}</div>
+        <div className="container mx-auto px-10 py-5 pb-20">{children}</div>
       </ScrollArea>
     </>
   );

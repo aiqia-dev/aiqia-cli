@@ -1,11 +1,4 @@
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from '@aiqiabr/aiqia-ui';
-import { Link } from 'react-router-dom';
+import { Button } from '@aiqiabr/aiqia-ui';
 
 export type Menu = {
   label: string;
@@ -19,21 +12,19 @@ type Props = {
 export function TopNavigation({ menu }: Props) {
   if (!menu) return null;
   return (
-    <nav className="px-10 py-3 border-b h-[var(--top-navigation-heigth)]">
-      <NavigationMenu>
-        <NavigationMenuList>
-          {menu.map((item, index) => (
-            <NavigationMenuItem key={index}>
-              <NavigationMenuLink
-                asChild
-                className={navigationMenuTriggerStyle()}
-              >
-                <Link to={item.href}>{item.label}</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          ))}
-        </NavigationMenuList>
-      </NavigationMenu>
+    <nav className="py-2 border-b h-[var(--top-navigation-heigth)] bg-card">
+      <div className="container mx-auto px-10 flex items-center gap-2">
+        {menu.map((item, index) => (
+          <Button
+            variant="ghost"
+            key={index}
+            href={item.href}
+            className="hover:text-primary hover:bg-primary/5"
+          >
+            {item.label}
+          </Button>
+        ))}
+      </div>
     </nav>
   );
 }

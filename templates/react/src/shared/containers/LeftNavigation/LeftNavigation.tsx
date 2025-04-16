@@ -1,49 +1,61 @@
-import {
-  ChartNoAxesGantt,
-  MapIcon,
-  Settings,
-  TowerControlIcon,
-} from 'lucide-react';
+import { LucideProps } from 'lucide-react';
 import { LeftDrawer } from './LeftDrawer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { cn } from '@aiqiabr/aiqia-ui';
 
-export function LeftNavigation() {
-  const menuItems = [
-    {
-      icon: TowerControlIcon,
-      label: 'Menu 1',
-      href: '/',
-    },
-    {
-      icon: MapIcon,
-      label: 'Menu 2',
-      href: '/',
-    },
-    {
-      icon: ChartNoAxesGantt,
-      label: 'Menu 3',
-      href: '/',
-    },
-    { icon: Settings, label: 'Menu 4', href: '/' },
-  ];
+type Props = {
+  menu: (
+    | {
+        icon: React.ForwardRefExoticComponent<
+          Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
+        >;
+        label: string;
+        href: string;
+      }
+    | {
+        title: string;
+      }
+  )[];
+};
+
+export function LeftNavigation({ menu }: Props) {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const isActive = (href: string) =>
+    pathname.split('/')[1] === href.split('/')[1];
 
   return (
     <LeftDrawer>
-      {(isExpanded: boolean) =>
-        menuItems.map((item, index) => (
-          <Link
-            key={index}
-            to={item.href}
-            className={`
-              flex items-center p-2 rounded-lg hover:bg-accent h-10
-              ${!isExpanded ? 'justify-center' : ''}
-            `}
-          >
-            <item.icon className="size-5" />
-            {isExpanded && <span className="ml-2">{item.label}</span>}
-          </Link>
-        ))
-      }
+      {(isExpanded: boolean) => (
+        <>
+          {menu.map((item, index) =>
+            'title' in item ? (
+              isExpanded && (
+                <h3
+                  key={index}
+                  className="px-2 py-1 mt-3 font-semibold text-muted-foreground text-sm"
+                >
+                  {item.title}
+                </h3>
+              )
+            ) : (
+              <Link
+                key={index}
+                to={item.href}
+                className={cn(
+                  'flex items-center p-2 rounded-lg hover:bg-primary/5 text-sm hover:text-primary',
+                  !isExpanded && 'justify-center',
+                  isActive(item.href) && 'bg-primary/5 text-primary'
+                )}
+              >
+                <item.icon className="size-5" />
+                {isExpanded && <span className="ml-2">{item.label}</span>}
+              </Link>
+            )
+          )}
+        </>
+      )}
     </LeftDrawer>
   );
 }

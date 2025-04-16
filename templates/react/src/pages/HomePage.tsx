@@ -1,5 +1,5 @@
 import { PageLayout } from '@/shared/layouts';
-import { Heading } from '@/shared/ui';
+import { Heading } from '@aiqiabr/aiqia-ui';
 
 export const HomePage = () => {
   const submenus = [
@@ -10,7 +10,7 @@ export const HomePage = () => {
 
   return (
     <PageLayout menu={submenus}>
-      <Heading>HomePage</Heading>
+      <Heading variant="h2">HomePage</Heading>
     </PageLayout>
   );
 };
