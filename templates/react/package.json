@@ -2,6 +2,7 @@
   "name": "@aiqia-app/PROJECT_NAME",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "build": "rsbuild build",
     "dev": "npx kill-port PROJECT_PORT_NUMBER && rsbuild dev",
