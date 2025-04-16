@@ -15,7 +15,7 @@ export default defineConfig({
     rspack: {
       output: {
         uniqueName: 'PROJECT_NAME',
-        publicPath: 'auto',
+        publicPath: process.env.NODE_ENV === 'production' ? 'auto' : '/',
       },
     },
   },
