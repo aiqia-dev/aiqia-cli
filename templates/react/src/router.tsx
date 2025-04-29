@@ -1,3 +1,4 @@
+import './globals.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -6,12 +7,11 @@ import { HomePage } from '@/pages/HomePage';
 import { ExamplesListPage } from '@/pages/ExamplesListPage';
 import { ExampleEditPage } from '@/pages/ExampleEditPage';
 import { Toaster } from '@aiqiabr/aiqia-ui';
-import './globals.css';
 
 export default function AppRouter() {
   return (
     <QueryClientProvider client={new QueryClient()}>
-      <Router basename={process.env.NODE_ENV === 'production' ? "/PROJECT_ROUTE" : "/"}>
+      <Router basename="/PROJECT_ROUTE">
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<HomePage />} />

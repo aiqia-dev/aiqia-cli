@@ -63,7 +63,7 @@
     "postcss": "^8.5.3"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "packageManager": "pnpm@9.15.2"
 }

@@ -1,4 +1,4 @@
-# Aiqia PROJECT_NAME
+# AIQIA PROJECT_NAME
 
 ## Setup
 
@@ -13,5 +13,7 @@ pnpm install
 Start the dev server:
 
 ```bash
-pnpm dev
+pnpm run dev
 ```
+
+Open [http://localhost:PROJECT_PORT_NUMBER/PROJECT_NAME](http://localhost:PROJECT_PORT_NUMBER/PROJECT_NAME) to view it in your browser.

@@ -15,7 +15,7 @@ export default defineConfig({
     rspack: {
       output: {
         uniqueName: 'PROJECT_NAME',
-        publicPath: process.env.NODE_ENV === 'production' ? 'auto' : '/',
+        publicPath: process.env.NODE_ENV === 'production' ? 'auto' : 'http://localhost:PROJECT_PORT_NUMBER/',
       },
     },
   },
@@ -27,13 +27,17 @@ export default defineConfig({
         './router': './src/router.tsx',
       },
       shared: {
+        tailwindcss: {
+          singleton: true,
+          requiredVersion: '^4.0.0',
+        },
         react: {
           singleton: true,
-          requiredVersion: '19.0.0',
+          requiredVersion: '^19.1.0',
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: '19.0.0',
+          requiredVersion: '^19.1.0',
         },
       },
     }),
