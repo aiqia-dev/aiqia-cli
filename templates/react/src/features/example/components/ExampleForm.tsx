@@ -1,7 +1,7 @@
 
 import { Button, Input, Label, Switch } from '@aiqiabr/aiqia-ui';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Example } from '../services/types';
 import { exampleSchema, ExampleFormData } from '../schemas/example.schema';
 
@@ -13,7 +13,7 @@ type ExampleFormProps = {
 
 export const ExampleForm = ({ initialData, onSubmit, isLoading }: ExampleFormProps) => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<ExampleFormData>({
-    resolver: yupResolver(exampleSchema),
+    resolver: zodResolver(exampleSchema),
     defaultValues: {
       name: initialData?.name || '',
       phone: initialData?.phone || '',

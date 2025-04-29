@@ -11,7 +11,7 @@ npx @aiqiabr/cli create <project-name> -p <port>
 then:
 
 ```
-cd <project-name> && pnpm run dev
+cd <project-name> && pnpm install && pnpm run dev
 ```
 
 For more info see the README.md in the project.
