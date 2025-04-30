@@ -4,7 +4,7 @@
   "description": "Create project structure for Aiqia",
   "type": "module",
   "bin": {
-    "aiqia": "./index.js"
+    "aiqia": "index.js"
   },
   "author": "Aiqia",
   "license": "ISC",
