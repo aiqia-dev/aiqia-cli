@@ -1,13 +1,12 @@
-
+import { Card, Heading, toast } from '@aiqiabr/aiqia-ui';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ExampleForm } from './components/ExampleForm';
-import { useGetExample } from './services/useGetExample';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { getExamplesKey } from './services/keys';
 import { saveExample } from './services/queries';
 import { Example } from './services/types';
-import { useState } from 'react';
-import { getExamplesKey } from './services/keys';
-import { Heading, toast } from '@aiqiabr/aiqia-ui';
+import { useGetExample } from './services/useGetExample';
 
 export const ExampleEdit = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,7 +15,8 @@ export const ExampleEdit = () => {
   const isCreating = id === 'new';
   const exampleId = isCreating ? undefined : Number(id);
 
-  const { data: example, isLoading: isLoadingExample } = useGetExample(exampleId);
+  const { data: example, isLoading: isLoadingExample } =
+    useGetExample(exampleId);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const mutation = useMutation({
@@ -46,13 +46,13 @@ export const ExampleEdit = () => {
       <Heading variant="h2">
         {isCreating ? 'Add New Example' : 'Edit Example'}
       </Heading>
-      <div className="mt-6 p-6 bg-card rounded-lg border">
+      <Card className="mt-6 p-6">
         <ExampleForm
           initialData={example}
           onSubmit={handleSubmit}
           isLoading={isLoadingExample || isSubmitting}
         />
-      </div>
+      </Card>
     </>
   );
 };

@@ -1,29 +1,37 @@
-import { LucideProps } from 'lucide-react';
-import { LeftDrawer } from './LeftDrawer';
-import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@aiqiabr/aiqia-ui';
+import { CircleSmall } from 'lucide-react';
+import { DynamicIcon } from 'lucide-react/dynamic';
+import { Link, useLocation } from 'react-router-dom';
+import { LeftDrawer } from './LeftDrawer';
 
-type Props = {
-  menu: (
-    | {
-        icon: React.ForwardRefExoticComponent<
-          Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-        >;
-        label: string;
-        href: string;
-      }
-    | {
-        title: string;
-      }
-  )[];
+type MenuItem = {
+  icon: any;
+  label: string;
+  href: string;
+  key?: string;
 };
 
-export function LeftNavigation({ menu }: Props) {
+type TitleItem = {
+  title: string;
+};
+
+type Props = {
+  menu: (MenuItem | TitleItem)[];
+  onModuleSelect?: (moduleKey: string) => void;
+};
+
+export function LeftNavigation({ menu, onModuleSelect }: Props) {
   const location = useLocation();
   const pathname = location.pathname;
 
   const isActive = (href: string) =>
     pathname.split('/')[1] === href.split('/')[1];
+
+  const handleModuleClick = (item: MenuItem) => {
+    if (item.key && onModuleSelect) {
+      onModuleSelect(item.key);
+    }
+  };
 
   return (
     <LeftDrawer>
@@ -46,10 +54,15 @@ export function LeftNavigation({ menu }: Props) {
                 className={cn(
                   'flex items-center p-2 rounded-lg hover:bg-primary/5 text-sm hover:text-primary',
                   !isExpanded && 'justify-center',
-                  isActive(item.href) && 'bg-primary/5 text-primary'
+                  isActive(item.href) && 'bg-primary/10 text-primary'
                 )}
+                onClick={() => handleModuleClick(item)}
               >
-                <item.icon className="size-5" />
+                {item.icon ? (
+                  <DynamicIcon name={item.icon} className="shrink-0 size-5" />
+                ) : (
+                  <CircleSmall className="shrink-0 size-5" />
+                )}
                 {isExpanded && <span className="ml-2">{item.label}</span>}
               </Link>
             )

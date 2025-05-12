@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { Button } from '@aiqiabr/aiqia-ui';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
 
 export function LeftDrawer({
   children,
@@ -38,7 +38,9 @@ export function LeftDrawer({
         >
           {isExpanded ? <ChevronLeft /> : <ChevronRight />}
         </Button>
-        <nav className="flex flex-col space-y-1">{children(isExpanded)}</nav>
+        <nav className="flex flex-col space-y-1 overflow-auto">
+          {children(isExpanded)}
+        </nav>
       </div>
     </aside>
   );
