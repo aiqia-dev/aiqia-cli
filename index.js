@@ -25,6 +25,11 @@ async function projectCreate(projectName, port) {
   try {
     await fs.copy(templatePath, projectPath);
 
+    await fs.rename(
+      path.join(projectPath, "gitignore"),
+      path.join(projectPath, ".gitignore")
+    );
+
     await replaceInFile({
       files: [`${projectPath}/**/*`],
       from: /PROJECT_NAME/g,

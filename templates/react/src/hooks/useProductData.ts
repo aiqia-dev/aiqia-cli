@@ -19,9 +19,10 @@ export const useProductData = () => {
 
   useEffect(() => {
     if (sessionData) {
+      const productKey = window.location.pathname.split('/')[1];
       const productData =
         sessionData.payload?.tenantPermissions?.accessControl?.products?.find(
-          (p: any) => p.key === 'ftms'
+          (p: any) => p.key === productKey
         );
       if (productData) {
         setProduct(productData);
